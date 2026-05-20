@@ -16,11 +16,16 @@ namespace Features
 
         private void Awake() => _initialPosition = transform.position;
 
-        public void StartJump() => _isJumping = true;
+        public void StartJump()
+        {
+            _isJumping = true;
+            print("empieza");
+        }
 
         public void StopJump()
         {
             _isJumping = false;
+            print("Stop");
             transform.position = _initialPosition;
             JumpManager.Instance.SetAllowed(false);
             Invoke(nameof(TryStartCount),3f);

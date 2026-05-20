@@ -41,10 +41,15 @@ namespace Services
         {
             if (!allowed)
                 return;
+            
+            if (!_inputService.IsJoystickStickMoved() && !_playerJump.IsJumping) //_inputService.AnyKeyReleased || 
+            {
+                _jumpCoroutine = StartCoroutine(Jump());
+                _jumpTime = 0f;
+                _playerJump.StartJump();
+            }
 
-            print("JumpManager Update: " + _inputService.AnyKeyPressed + ", " + _inputService.AnyKeyReleased);
-
-            if (_inputService.AnyKeyPressed)
+            if (_inputService.IsJoystickStickMoved() && _playerJump.IsJumping) // _inputService.AnyKeyPressed || 
             {
                 if (_jumpCoroutine != null)
                 {
@@ -55,12 +60,6 @@ namespace Services
                 }
             }
 
-            if (_inputService.AnyKeyReleased)
-            {
-                _jumpCoroutine = StartCoroutine(Jump());
-                _jumpTime = 0f;
-                _playerJump.StartJump();
-            }
 
             if(_playerJump.IsJumping)
                 OnTimeJumpUpdate?.Invoke(_jumpTime);
