@@ -42,14 +42,14 @@ namespace Services
             if (!allowed)
                 return;
             
-            if (!_inputService.IsJoystickStickMoved() && !_playerJump.IsJumping) //_inputService.AnyKeyReleased || 
+            if (!_inputService.IsAnyAxisMoved() && !_playerJump.IsJumping)
             {
                 _jumpCoroutine = StartCoroutine(Jump());
                 _jumpTime = 0f;
                 _playerJump.StartJump();
             }
 
-            if (_inputService.IsJoystickStickMoved() && _playerJump.IsJumping) // _inputService.AnyKeyPressed || 
+            if (_inputService.IsAnyAxisMoved() && _playerJump.IsJumping)
             {
                 if (_jumpCoroutine != null)
                 {

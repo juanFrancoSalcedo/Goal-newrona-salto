@@ -23,17 +23,16 @@ public class ButtonStartGame : BaseButtonAttendant
         if (GameStateContext.State != GameEventType.FormSubmitted)
             return;
 
-        if (InputService.Instance.AnyKeyReleased)
+        if (InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
         {
             jump = true;
             
         }
 
-        if (jump && InputService.Instance.AnyKeyPressed)
+        if (jump && InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
         {
             jump = false;
             Click();
         }
     }
-
 }
