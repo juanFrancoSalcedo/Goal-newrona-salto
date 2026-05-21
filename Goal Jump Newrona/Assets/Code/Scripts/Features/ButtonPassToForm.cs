@@ -20,13 +20,12 @@ public class ButtonPassToForm: BaseButtonAttendant
         if (GameStateContext.State != GameEventType.Intro)
             return;
 
-        if (InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
+        if (InputService.Instance.IsAnyAxisMoved())
         {
             jump = true;
-
         }
 
-        if (jump && InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
+        if (jump && !InputService.Instance.IsAnyAxisMoved())
         {
             jump = false;
             Click();

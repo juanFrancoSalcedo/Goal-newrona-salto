@@ -25,7 +25,7 @@ namespace Features
         {
             if (_fillImage == null)
                 return;
-            print($"var {(float)jumpTime / _maxJumpTime}");
+            //print($"var {(float)jumpTime / _maxJumpTime}");
             _fillImage.fillAmount = Mathf.Clamp01(jumpTime / _maxJumpTime);
         }
     }

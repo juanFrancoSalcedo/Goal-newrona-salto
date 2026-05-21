@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
+using Features.Score;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,8 +59,8 @@ public class FormController : MonoBehaviour, IFormControllable
         //RadialAge.GetComponent<IFormInput>().OnUpdateState += CheckInputAge;
         //RadialAge.GetComponent<IFormInput>().OnError += ErrorInput;
 
-        //Cellphone.GetComponent<IFormInput>().OnUpdateState += CheckInputCellphone;
-        //Cellphone.GetComponent<IFormInput>().OnError += ErrorInput;
+        Cellphone.GetComponent<IFormInput>().OnUpdateState += CheckInputCellphone;
+        Cellphone.GetComponent<IFormInput>().OnError += ErrorInput;
 
         //RadialGender.GetComponent<IFormInput>().OnUpdateState += CheckInputGender;
         //RadialGender.GetComponent<IFormInput>().OnError += ErrorInput;
@@ -89,8 +90,8 @@ public class FormController : MonoBehaviour, IFormControllable
         //RadialAge.GetComponent<IFormInput>().OnUpdateState -= CheckInputAge;
         //RadialAge.GetComponent<IFormInput>().OnError -= ErrorInput;
 
-        //Cellphone.GetComponent<IFormInput>().OnUpdateState -= CheckInputCellphone;
-        //Cellphone.GetComponent<IFormInput>().OnError -= ErrorInput;
+        Cellphone.GetComponent<IFormInput>().OnUpdateState -= CheckInputCellphone;
+        Cellphone.GetComponent<IFormInput>().OnError -= ErrorInput;
 
         //RadialGender.GetComponent<IFormInput>().OnUpdateState -= CheckInputGender;
         //RadialGender.GetComponent<IFormInput>().OnError -= ErrorInput;
@@ -176,6 +177,12 @@ public class FormController : MonoBehaviour, IFormControllable
     public async void Submit()
     {
         await Task.Delay(200);
+
+        string nombre = InputName.GetComponent<IFormInput>().GetValue()?.ToString();
+        string correo = InputMail.GetComponent<IFormInput>().GetValue()?.ToString();
+        string telefono = Cellphone.GetComponent<IFormInput>().GetValue()?.ToString();
+
+        RankingManager.Instance.RegisterCurrentPlayer(nombre, correo, telefono);
     }
     
 }
