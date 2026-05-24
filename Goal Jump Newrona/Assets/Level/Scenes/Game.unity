@@ -1940,7 +1940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &582322364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2279,6 +2279,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665297499}
   m_CullTransparentMesh: 1
+--- !u!1 &908015235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5700004199785046793, guid: 52d077fe67559d447b4acc61fbb740ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064958083513691479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &908015241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908015235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69928358aab85449b3b61518a48d5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSubmitForm
 --- !u!1 &926656163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2359,7 @@ MonoBehaviour:
     targetRotation: {x: 0, y: 0, z: 0}
     targetSizeDelta: {x: 0, y: 0}
     timeAnimation: 0.4
-    delay: 2
+    delay: 1
     coldTime: 0
     animationCurve: 0
     playOnAwake: 1
@@ -3946,7 +3964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Features.JumpBar
   _fillImage: {fileID: 182990162}
-  _maxJumpTime: 1.8
+  _maxJumpTime: 1
 --- !u!1 &1480435361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,7 +5107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1972422694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5290,7 +5308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Correo
+  m_text: "T\xE9lefono"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5718,6 +5736,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1480435362}
     m_Modifications:
+    - target: {fileID: 74215892932189782, guid: 52d077fe67559d447b4acc61fbb740ee,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 46.8492
+      objectReference: {fileID: 0}
+    - target: {fileID: 74215892932189782, guid: 52d077fe67559d447b4acc61fbb740ee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 221.57637
+      objectReference: {fileID: 0}
     - target: {fileID: 502112355284861244, guid: 52d077fe67559d447b4acc61fbb740ee,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5853,6 +5881,11 @@ PrefabInstance:
       propertyPath: Cellphone
       value: 
       objectReference: {fileID: 188456415}
+    - target: {fileID: 4093376917730339128, guid: 52d077fe67559d447b4acc61fbb740ee,
+        type: 3}
+      propertyPath: FormSubmit
+      value: 
+      objectReference: {fileID: 908015235}
     - target: {fileID: 4670462204433624937, guid: 52d077fe67559d447b4acc61fbb740ee,
         type: 3}
       propertyPath: m_Name
@@ -5898,14 +5931,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 421
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9101854892738110620, guid: 52d077fe67559d447b4acc61fbb740ee, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 988785638339785401, guid: 52d077fe67559d447b4acc61fbb740ee,
         type: 3}
       insertIndex: 5
       addedObject: {fileID: 188456420}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5700004199785046793, guid: 52d077fe67559d447b4acc61fbb740ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 908015241}
   m_SourcePrefab: {fileID: 100100000, guid: 52d077fe67559d447b4acc61fbb740ee, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

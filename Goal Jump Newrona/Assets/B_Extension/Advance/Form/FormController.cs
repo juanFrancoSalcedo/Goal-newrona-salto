@@ -77,6 +77,8 @@ public class FormController : MonoBehaviour, IFormControllable
         ToggleHabeas.GetComponent<IFormInput>().OnUpdateState += CheckHabeas;
         ToggleHabeas.GetComponent<IFormInput>().OnError += ErrorInput;
 
+        FormSubmitable.OnPass += Submit;
+
     }
 
     private void OnDisable()
@@ -87,6 +89,7 @@ public class FormController : MonoBehaviour, IFormControllable
         InputMail.GetComponent<IFormInput>().OnUpdateState -= CheckInputEmail;
         InputMail.GetComponent<IFormInput>().OnError -= ErrorInput;
 
+        FormSubmitable.OnPass -= Submit;
         //RadialAge.GetComponent<IFormInput>().OnUpdateState -= CheckInputAge;
         //RadialAge.GetComponent<IFormInput>().OnError -= ErrorInput;
 
