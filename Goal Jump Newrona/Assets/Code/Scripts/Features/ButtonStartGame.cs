@@ -24,10 +24,7 @@ public class ButtonStartGame : BaseButtonAttendant
             return;
 
         if (InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
-        {
             jump = true;
-            
-        }
 
         if (jump && InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
         {

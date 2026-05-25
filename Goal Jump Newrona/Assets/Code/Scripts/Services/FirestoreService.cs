@@ -53,6 +53,7 @@ namespace Services
 
         private string BuildFirestoreJson(Services.PlayerData playerData)
         {
+            string fechaIso = playerData.fechaRegistro.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
             return $"{{" +
                 $"\"fields\":{{" +
                     $"\"uid\":{{\"stringValue\":\"{EscapeJson(playerData.uid)}\"}}," +
@@ -60,7 +61,8 @@ namespace Services
                     $"\"correo\":{{\"stringValue\":\"{EscapeJson(playerData.correo)}\"}}," +
                     $"\"telefono\":{{\"stringValue\":\"{EscapeJson(playerData.telefono)}\"}}," +
                     $"\"score\":{{\"integerValue\":{playerData.score}}}," +
-                    $"\"tiempo\":{{\"doubleValue\":{playerData.tiempo.ToString(System.Globalization.CultureInfo.InvariantCulture)}}}" +
+                    $"\"tiempo\":{{\"doubleValue\":{playerData.tiempo.ToString(System.Globalization.CultureInfo.InvariantCulture)}}}," +
+                    $"\"fechaRegistro\":{{\"timestampValue\":\"{fechaIso}\"}}" +
                 $"}}" +
             $"}}";
         }

@@ -22,7 +22,7 @@ namespace Features.Score
 
         }
 
-        private void UpdateRanking()
+        public void UpdateRanking()
         {
             //UpdateRanking();
             //_bufferPlayerData.score = ScoreManager.Instance.TotalScore;
@@ -32,6 +32,7 @@ namespace Features.Score
                 print("RankingManager: Ignoring ranking update because the game is not finished.");
                 return;
             }
+            _bufferPlayerData.tiempo = ScreenResult.Instance.GetHighestScore();
             CsvPlayerSaver.Save(_bufferPlayerData);
             FirestoreService.Instance.SendPlayerData(_bufferPlayerData);
             List<PlayerData> players = CsvPlayerSaver.GetSavedPlayers();

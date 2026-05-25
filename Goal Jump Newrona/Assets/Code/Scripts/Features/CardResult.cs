@@ -18,8 +18,7 @@ public class CardResult : MonoBehaviour
     {
         if (_rectTransform == null)
             _rectTransform = GetComponent<RectTransform>();
-
-        _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void Configure(int attempt, float time)
@@ -30,9 +29,9 @@ public class CardResult : MonoBehaviour
 
     public void AnimateShow()
     {
+        _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 0f;
         _rectTransform.localScale = Vector3.one * 0.8f;
-
         _canvasGroup.DOFade(1f, _fadeDuration);
         _rectTransform.DOScale(Vector3.one, _scaleDuration).SetEase(Ease.OutBack);
     }

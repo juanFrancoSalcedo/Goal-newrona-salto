@@ -19,7 +19,6 @@ namespace Features
 
         private void OnEnable()
         {
-            WriteBufferActions();
             buttonComponent.onClick.AddListener(OnSubmitClick);
         }
 

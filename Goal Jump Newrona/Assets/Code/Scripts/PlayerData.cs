@@ -11,6 +11,7 @@ namespace Services
         public string telefono;
         public int score;
         public float tiempo;
+        public DateTime fechaRegistro;
 
         public PlayerData(string uid, string nombre, string correo, string telefono, int score = 0, float tiempo = 0)
         {
@@ -20,6 +21,7 @@ namespace Services
             this.telefono = telefono;
             this.score = score;
             this.tiempo = tiempo;
+            this.fechaRegistro = DateTime.Now;
         }
 
         public int CompareTo(PlayerData other)

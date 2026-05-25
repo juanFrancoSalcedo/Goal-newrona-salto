@@ -34,7 +34,7 @@ namespace Features
         private void TryStartCount() 
         {
             _countdownTimer.Begin();
-            EndGameManager.attempts++;
+            EndGameManager.Instance.IncreaseAttempts();
         }
 
         private void Update()

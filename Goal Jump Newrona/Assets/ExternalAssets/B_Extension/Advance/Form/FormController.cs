@@ -184,6 +184,7 @@ public class FormController : MonoBehaviour, IFormControllable
 
             );
         RankingManager.Instance.RegisterCurrentPlayer(nombre, correo, telefono);
+        GameStateContext.ChangeState(GameEventType.FormSubmitted);
     }
     
 }
