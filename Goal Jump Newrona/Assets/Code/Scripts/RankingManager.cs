@@ -10,16 +10,9 @@ namespace Features.Score
     {
         [SerializeField] private List<CardRanking> cardRankings = new List<CardRanking>();
         [SerializeField] CardRanking currentPlayerCard;
-        [SerializeField] private Timer timer;
         private const int MaxRankingPositions = 5;
 
-
-
         private PlayerData _bufferPlayerData;
-        private void OnTotalScoreChanged(int totalScore)
-        {
-            Invoke(nameof(UpdateRanking),0.1f);
-        }
 
         public void RegisterCurrentPlayer(string nombre, string correo, string telefono)
         {
@@ -40,7 +33,7 @@ namespace Features.Score
                 return;
             }
             CsvPlayerSaver.Save(_bufferPlayerData);
-
+            FirestoreService.Instance.SendPlayerData(_bufferPlayerData);
             List<PlayerData> players = CsvPlayerSaver.GetSavedPlayers();
 
             for (int i = 0; i < cardRankings.Count; i++)

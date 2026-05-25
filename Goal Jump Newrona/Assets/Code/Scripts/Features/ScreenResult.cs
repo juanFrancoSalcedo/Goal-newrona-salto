@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using B_Extensions;
 using Services;
 using UnityEngine;
 
-public class ScreenResult : MonoBehaviour
+public class ScreenResult : Singleton<ScreenResult>
 {
     [SerializeField] private CardResult[] _cards;
 
@@ -11,12 +12,14 @@ public class ScreenResult : MonoBehaviour
 
     void OnEnable()
     {
-        JumpManager.Instance.OnTimeJumpEnd += OnJumpEnd;
+        if (JumpManager.Instance != null)
+            JumpManager.Instance.OnTimeJumpEnd += OnJumpEnd;
     }
 
     void OnDisable()
     {
-        JumpManager.Instance.OnTimeJumpEnd -= OnJumpEnd;
+        if (JumpManager.Instance != null)
+            JumpManager.Instance.OnTimeJumpEnd -= OnJumpEnd;
     }
 
     private void OnJumpEnd(float time)
@@ -70,5 +73,17 @@ public class ScreenResult : MonoBehaviour
         }
         _currentIndex = 0;
         _jumpResults.Clear();
+    }
+
+    public float GetHighestScore()
+    {
+        if (_jumpResults.Count == 0) return 0f;
+        float highest = _jumpResults[0];
+        for (int i = 1; i < _jumpResults.Count; i++)
+        {
+            if (_jumpResults[i] > highest)
+                highest = _jumpResults[i];
+        }
+        return highest;
     }
 }
