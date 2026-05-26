@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using B_Extensions;
+using Features;
 using Services;
 using UnityEngine;
 
 public class ScreenResult : Singleton<ScreenResult>
 {
     [SerializeField] private CardResult[] _cards;
-
+    [SerializeField] private JumpBar _jumpBar;
     private List<float> _jumpResults = new();
     private int _currentIndex;
 
@@ -84,6 +85,7 @@ public class ScreenResult : Singleton<ScreenResult>
             if (_jumpResults[i] > highest)
                 highest = _jumpResults[i];
         }
+        _jumpBar.UpdateFillAmount(highest);
         return highest;
     }
 }

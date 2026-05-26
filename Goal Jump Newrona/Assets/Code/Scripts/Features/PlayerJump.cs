@@ -26,6 +26,7 @@ namespace Features
         {
             _isJumping = false;
             print("Stop");
+            ManagerAudio.Instance.PlayCheers();
             transform.position = _initialPosition;
             JumpManager.Instance.SetAllowed(false);
             Invoke(nameof(TryStartCount),3f);

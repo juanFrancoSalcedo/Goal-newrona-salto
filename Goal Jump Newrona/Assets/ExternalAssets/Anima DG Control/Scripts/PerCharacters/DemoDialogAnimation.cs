@@ -27,6 +27,12 @@ public class DemoDialogAnimation : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         animation.Animate(animator, timePerChar,curve);
     }
+
+    private void OnDisable()
+    {
+        if(animationRoutine != null)
+            StopCoroutine(animationRoutine);
+    }
 #endif
 }
 

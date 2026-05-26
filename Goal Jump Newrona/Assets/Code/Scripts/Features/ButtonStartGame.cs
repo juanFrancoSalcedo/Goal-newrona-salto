@@ -15,6 +15,8 @@ public class ButtonStartGame : BaseButtonAttendant
         if (GameStateContext.State != GameEventType.FormSubmitted)
             return;
         GameStateContext.ChangeState(GameEventType.IntroCountDown);
+        ManagerAudio.Instance.PlayKick();
+        ManagerAudio.Instance.PlayCrowds();
     }
 
     bool jump = false;
@@ -23,10 +25,10 @@ public class ButtonStartGame : BaseButtonAttendant
         if (GameStateContext.State != GameEventType.FormSubmitted)
             return;
 
-        if (InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
+        if (InputService.Instance.IsAnyKeyPressed())
             jump = true;
 
-        if (jump && InputService.Instance.GetAxisHorizontal() != 0 || InputService.Instance.GetAxisVertical() != 0)
+        if (jump && InputService.Instance.IsAnyKeyPressed())
         {
             jump = false;
             Click();

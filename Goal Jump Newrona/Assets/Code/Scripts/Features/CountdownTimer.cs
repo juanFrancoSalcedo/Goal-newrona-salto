@@ -80,6 +80,7 @@ namespace Features
                 UpdateDisplay();
                 OnCountdownFinished?.Invoke();
                 onCountdownFinished?.Invoke();
+                ManagerAudio.Instance.PlayKick();
             }
         }
 

@@ -9,13 +9,13 @@ namespace Features.Score
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text scoreText;
 
-        private const string ScoreFormat = "{0} pts";
+        private const string ScoreFormat = "{0} s";
 
-        public void SetData(int position, string playerName, int score)
+        public void SetData(int position, string playerName, float time)
         {
             positionText.text = position.ToString();
             nameText.text = playerName;
-            scoreText.text = string.Format(ScoreFormat, score);
+            scoreText.text = string.Format(ScoreFormat, time);
         }
 
         public void Clear()

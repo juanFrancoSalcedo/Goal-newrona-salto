@@ -30,6 +30,7 @@ namespace Features
         public void IncreaseAttempts()
         {
             attempts++;
+            ManagerAudio.Instance.PlayWhistelRandom();
             OnIncreaseAttempt?.Invoke();
         }
     }

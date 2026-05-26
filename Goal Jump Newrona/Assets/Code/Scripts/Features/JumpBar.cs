@@ -10,9 +10,16 @@ namespace Features
         [SerializeField] private Image _fillImage;
         [SerializeField] private float _maxJumpTime = 5f;
         [SerializeField] CountdownTimer countTimer;
+        [SerializeField] private bool justOne;
 
         private void OnEnable()
         {
+            if (justOne)
+            { 
+                
+                return;
+            }
+
             if (JumpManager.Instance != null)
                 JumpManager.Instance.OnTimeJumpUpdate += UpdateFillAmount;
             countTimer.OnCountdownFinished += Reset;
@@ -22,12 +29,18 @@ namespace Features
 
         private void OnDisable()
         {
+            if (justOne)
+            { 
+            
+                return;
+            }
+
             if (JumpManager.Instance != null)
                 JumpManager.Instance.OnTimeJumpUpdate -= UpdateFillAmount;
             countTimer.OnCountdownFinished += Reset;
         }
 
-        private void UpdateFillAmount(float jumpTime)
+        public void UpdateFillAmount(float jumpTime)
         {
             if (_fillImage == null)
                 return;

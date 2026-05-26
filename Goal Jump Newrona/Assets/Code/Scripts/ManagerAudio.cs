@@ -21,7 +21,6 @@ public class ManagerAudio : Singleton<ManagerAudio>
     public void PlayWhistelEnd() => whistelEnd.Play();
     public void PlayWhistelStart() => whistelStart.Play();
     public void PlayCheers() => cheers[Random.Range(0, cheers.Length)].Play();
-
     public void PlaySelectUI()=> select.Play();
 
     Coroutine crowdsCor = null;

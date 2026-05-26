@@ -12,5 +12,11 @@ namespace Services
         public bool IsAnyAxisMoved(float deadZone = 0.1f) =>
             Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone ||
             Mathf.Abs(Input.GetAxis("Vertical")) > deadZone;
+
+        public bool IsAnyKeyPressed() => Input.anyKeyDown;
+
+        public bool IsAnyKeyHeld() => Input.anyKey;
+
+        public bool IsAnyKeyReleased() => !Input.anyKey;
     }
 }

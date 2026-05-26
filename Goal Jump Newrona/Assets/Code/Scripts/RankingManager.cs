@@ -42,9 +42,9 @@ namespace Features.Score
                 if (i < MaxRankingPositions && i < players.Count)
                 { 
                     if (_bufferPlayerData != null && _bufferPlayerData.uid.Equals(players[i].uid))
-                        currentPlayerCard.SetData(i+1,_bufferPlayerData.nombre, _bufferPlayerData.score);
+                        currentPlayerCard.SetData(i+1,_bufferPlayerData.nombre, _bufferPlayerData.tiempo);
                 
-                    cardRankings[i].SetData(i + 1, players[i].nombre, players[i].score);
+                    cardRankings[i].SetData(i + 1, players[i].nombre, players[i].tiempo);
                 }
                 else
                     cardRankings[i].Clear();

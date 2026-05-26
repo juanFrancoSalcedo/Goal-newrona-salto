@@ -31,6 +31,7 @@ namespace Features
         {
             if (!_submitEnabled) 
                 return;
+            ManagerAudio.Instance.PlayWhistelStart();
             OnPass?.Invoke();
         }
     }

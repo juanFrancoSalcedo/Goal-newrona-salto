@@ -12,6 +12,7 @@ public class ButtonPassToForm: BaseButtonAttendant
         if (GameStateContext.State != GameEventType.Intro)
             return;
         GameStateContext.ChangeState(GameEventType.Form);
+        ManagerAudio.Instance.PlaySelectUI();
     }
 
     bool jump = false;
@@ -20,12 +21,12 @@ public class ButtonPassToForm: BaseButtonAttendant
         if (GameStateContext.State != GameEventType.Intro)
             return;
 
-        if (InputService.Instance.IsAnyAxisMoved())
+        if (InputService.Instance.IsAnyKeyReleased())
         {
             jump = true;
         }
 
-        if (jump && !InputService.Instance.IsAnyAxisMoved())
+        if (jump && InputService.Instance.IsAnyKeyPressed())
         {
             jump = false;
             Click();
