@@ -41,6 +41,9 @@ namespace Services
         {
             if (!allowed)
                 return;
+
+            if (GameStateContext.State != GameEventType.GameStarted)
+                return;
             
             if (_inputService.IsAnyKeyReleased() && !_playerJump.IsJumping)
             {
