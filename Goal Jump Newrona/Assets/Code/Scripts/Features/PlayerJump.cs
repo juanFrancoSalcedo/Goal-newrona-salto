@@ -8,6 +8,7 @@ namespace Features
     {
         [SerializeField] private float _jumpAmount = 1f;
         [SerializeField] private CountdownTimer _countdownTimer;
+        [SerializeField] private Animator _animator;
 
         private Vector3 _initialPosition;
         private bool _isJumping = false;
@@ -19,6 +20,7 @@ namespace Features
         public void StartJump()
         {
             _isJumping = true;
+            _animator.SetTrigger("Jump");
             print("empieza");
         }
 

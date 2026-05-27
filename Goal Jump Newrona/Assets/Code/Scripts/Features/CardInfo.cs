@@ -10,8 +10,7 @@ namespace Features
     {
         [SerializeField] private TMP_Text _timeText;
         [SerializeField] private Image imageBackground;
-        [SerializeField] private Sprite before;
-        [SerializeField] private Sprite after;
+        
         //[SerializeField] private float _horizontalOffset = 80f;
 
         //private static bool _isLeft = true;
@@ -34,7 +33,6 @@ namespace Features
             Sequence sequence = DOTween.Sequence();
             sequence.Append(_timeText.DOFade(0, 0f));
             sequence.Append(_timeText.DOFade(1, 2f));
-            imageBackground.sprite = after;
         }
     }
 }

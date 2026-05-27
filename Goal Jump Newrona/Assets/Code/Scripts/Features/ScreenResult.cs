@@ -7,6 +7,7 @@ using UnityEngine;
 public class ScreenResult : Singleton<ScreenResult>
 {
     [SerializeField] private CardResult[] _cards;
+    [SerializeField] private CardResult _bestPlayerCard;
     [SerializeField] private JumpBar _jumpBar;
     private List<float> _jumpResults = new();
     private int _currentIndex;
@@ -26,7 +27,7 @@ public class ScreenResult : Singleton<ScreenResult>
     private void OnJumpEnd(float time)
     {
         _jumpResults.Add(time);
-
+        ShowBestPlayer();
         if (_currentIndex < _jumpResults.Count && _currentIndex < _cards.Length)
         {
             ShowNextResult();
@@ -72,6 +73,8 @@ public class ScreenResult : Singleton<ScreenResult>
         {
             card.gameObject.SetActive(false);
         }
+        if (_bestPlayerCard != null)
+            _bestPlayerCard.gameObject.SetActive(false);
         _currentIndex = 0;
         _jumpResults.Clear();
     }
@@ -87,5 +90,15 @@ public class ScreenResult : Singleton<ScreenResult>
         }
         _jumpBar.UpdateFillAmount(highest);
         return highest;
+    }
+
+    public void ShowBestPlayer()
+    {
+        var players = CsvPlayerSaver.GetSavedPlayers();
+        if (players == null || players.Count == 0) return;
+
+        PlayerData best = players[0];
+        _bestPlayerCard.Configure(best.nombre, best.tiempo);
+        _bestPlayerCard.AnimateShow();
     }
 }

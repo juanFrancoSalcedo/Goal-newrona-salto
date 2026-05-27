@@ -13,10 +13,16 @@ namespace Services
             Mathf.Abs(Input.GetAxis("Horizontal")) > deadZone ||
             Mathf.Abs(Input.GetAxis("Vertical")) > deadZone;
 
-        public bool IsAnyKeyPressed() => Input.anyKeyDown;
+        public bool IsAnyKeyPressed() => Input.anyKeyDown && !AnyMouseButtonDown();
 
-        public bool IsAnyKeyHeld() => Input.anyKey;
+        public bool IsAnyKeyHeld() => Input.anyKey && !AnyMouseButton();
 
-        public bool IsAnyKeyReleased() => !Input.anyKey;
+        public bool IsAnyKeyReleased() => !IsAnyKeyHeld();
+
+        private bool AnyMouseButtonDown() =>
+            Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2);
+
+        private bool AnyMouseButton() =>
+            Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2);
     }
 }

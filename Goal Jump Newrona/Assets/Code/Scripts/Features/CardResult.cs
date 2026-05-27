@@ -27,6 +27,12 @@ public class CardResult : MonoBehaviour
         _timeText.text = $"{time:F2}s";
     }
 
+    public void Configure(string playerName, float time)
+    {
+        _attemptText.text = playerName;
+        _timeText.text = $"{time}";
+    }
+
     public void AnimateShow()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
